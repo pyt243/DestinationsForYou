@@ -1,0 +1,84 @@
+.mainbox{
+  position :absolute;
+  width:100%;
+  height:100%;
+  text-align: center;
+}
+#titlehead{
+  position:absolute;
+  width:100%;
+  padding:200px 30%;
+  margin:auto;
+  text-align:center;
+  z-index:1;
+}
+#title{
+  width:40%;
+  margin-left:15px;
+  text-align: center;
+  font-size: 60px;
+  color:white;
+  padding:30px;
+  margin-bottom: 0;
+}
+a.circle-a{
+  width:120px;
+  height:120px;
+  display:block;
+  margin-left:40%;
+  padding:10px;
+  padding-top:30px;
+  border-radius: 50%;
+  background-color:ivory;
+  color:black;
+  transition:1s;
+}
+a.circle-a:hover{
+  transform: rotate(360deg);
+  background-color:#82adf2;
+}
+p.imgageslide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity:0;
+  animation-name: slideshow;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+p.imgageslide:nth-child(1){
+  background-image: url("http://getwallpapers.com/wallpaper/full/e/b/8/17292.jpg");
+  animation-delay: 0s;
+}
+p.imgageslide:nth-child(2){
+  background-image:url("https://i.pinimg.com/originals/f4/e1/71/f4e17111fb0acea50d3fd7d57c27f435.jpg");
+  animation-delay: 10s;
+}
+p.imgageslide:nth-child(3){
+    background-image:url("https://images.wallpaperscraft.com/image/3d_photoshop_nature_landscape_14993_1920x1080.jpg");
+    animation-delay: 20s;
+}
+.fa.fa-binoculars{
+  font-size: 30px;
+}
+@keyframes slideshow{
+  0%{
+     opacity:0;
+  }
+  10%{
+    opacity:1;
+  }
+  23%{
+    opacity:1;
+  }
+  33%{
+
+    opacity:1;
+  }
+  40%{
+    opacity:0;
+  }
+
+}

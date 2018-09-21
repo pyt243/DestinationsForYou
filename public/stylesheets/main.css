@@ -1,0 +1,21 @@
+.img-thumbnail img{
+  width:100%;
+}
+div.img-thumbnail{
+  padding:0;
+}
+.indexdivs{
+  border:1px solid #dcdee2;
+  padding:0;
+  border-radius:3px;
+  padding: 10px;
+}
+img.img-thumbnail{
+  height:150px;
+}
+.img-thumbnail .caption-full{
+  padding:9px;
+}
+.deleteform {
+  display: inline;
+}
