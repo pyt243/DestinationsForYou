@@ -41,6 +41,7 @@ router.post("/campgrounds/:id/comments",isLoggedIn,function(req,res){
     }
   });
 });
+/*
 router.get("/campgrounds/:id/comments/:comment_id/edit",checkComment,function(req,res){
   Coment.findById(req.params.comment_id,function(err,fc){
     if(err){
@@ -58,13 +59,38 @@ router.put("/campgrounds/:id/comments/:comment_id",checkComment,function(req,res
       res.redirect("/campgrounds/" + req.params.id )
       }
   });
-});
+});*/
 router.delete("/campgrounds/:id/comments/:comment_id",checkComment,function(req,res){
   Coment.findByIdAndRemove(req.params.comment_id,function(err){
     if(err){
       console.log("back");
     }else{
       res.redirect("/campgrounds/" + req.params.id);
+    }
+  });
+});
+router.post("/commentNew",function(req,res){
+  var obj = req.body;
+  console.log(obj);
+  Campground.findById(obj.c_id,function(err,fg){
+      if(err){
+        redirect("back");
+      }else {
+        Coment.create({text:obj.text},function(err,fc){
+          fc.author.username=obj.currentUser.username;
+          fc.author.id=obj.currentUser._id;
+          fc.save();
+          fg.comments.push(fc);
+          fg.save();
+          res.send(fc._id);
+        });
+      }
+  });
+});
+router.post("/commentRemove",function(req,res){
+  Coment.findByIdAndRemove(req.body.cid,function(err){
+    if(err){
+      console.log(err);
     }
   });
 });

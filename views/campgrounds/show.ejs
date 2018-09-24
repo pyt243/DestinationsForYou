@@ -29,27 +29,33 @@
          </div>
        </div>
       <div class="img-thumbnail" style="margin-top:20px;background-color:#eaecef;padding:20px">
-      <div class="text-right"><a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Add New Comment</a></div>
-      <hr>
+    <!--  <div class="text-right"><a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Add New Comment</a></div> -->
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="form-control " name="comment-form" id="inst">
+      </div>
+     </div>
+     <hr>
+     <% var bj = {currentUser:currentUser,c_id:campground._id};var st = JSON.stringify(bj); %>
+      <div class="row" id="com" data-test-value="<%=st %>">
       <% campground.comments.forEach(function(comment){ %>
-         <div class="row">
-          <div class="col-md-12">
+
+          <div class="col-md-8">
             <strong><%= comment.author.username %></strong>
             <span class="float-right"></span>
              <p> <%= comment.text%></p>
-             <% if(currentUser && comment._id.toString() == currentUser._id) { %>
-             <a class="btn btn-sm btn-warning" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">Edit</a>
-             <form class="deleteform" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=delete" method="post">
-               <button class="btn btn-sm btn-danger">Delete</button>
-             </form>
+           </div>
+             <% if(currentUser && comment.author.username == currentUser.username) { %>
+               <div class="col-md-4">
+            <!-- <a class="btn btn-sm btn-warning" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">Edit</a>
+             <form class="deleteform" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=delete" method="post">-->
+               <button class="btn btn-sm btn-danger del" data-test-value="<%= comment._id %>">Delete</button>
+            <!-- </form> -->
+           </div>
              <% } %>
-          </div>
-         </div>
-
+          <hr>
       <% }) %>
-      </div>
-     </div>
+    </div>
    </div>
 </div>
-
 <% include ../partials/footer %>

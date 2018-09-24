@@ -30,7 +30,7 @@ Campground.create(newcamp,function(err,cg){
 router.get("/campgrounds/new",isLoggedIn,function(req,res){
   res.render("campgrounds/new.ejs");
 });
-router.get("/campgrounds/:id",function(req,res){
+router.get("/campgrounds/:id",isLoggedIn,function(req,res){
   Campground.findById(req.params.id).populate("comments").exec(function(err,cg){
     if(err){
       console.log(err);
