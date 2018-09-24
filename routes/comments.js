@@ -60,7 +60,7 @@ router.put("/campgrounds/:id/comments/:comment_id",checkComment,function(req,res
       }
   });
 });*/
-router.delete("/campgrounds/:id/comments/:comment_id",checkComment,function(req,res){
+/*router.delete("/campgrounds/:id/comments/:comment_id",checkComment,function(req,res){
   Coment.findByIdAndRemove(req.params.comment_id,function(err){
     if(err){
       console.log("back");
@@ -68,7 +68,7 @@ router.delete("/campgrounds/:id/comments/:comment_id",checkComment,function(req,
       res.redirect("/campgrounds/" + req.params.id);
     }
   });
-});
+});*/
 router.post("/commentNew",function(req,res){
   var obj = req.body;
   console.log(obj);
