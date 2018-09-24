@@ -27,7 +27,7 @@ $('#inst').keypress(function(e){
     //  console.log(cid);
   }
 });
-$(".del").on("click",function(e){
+$("#com").on("click",".del",function(e){
   var cid = $(this).attr("data-test-value");
   var obj = {cid:cid};
   $(this).parent().prev().remove();
